@@ -470,26 +470,30 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
  <section class="band">
   <div class="wrap">
-   <div class="form">
+   <form class="form" action="https://formsubmit.co/management@east-westhomes.com" method="POST">
+    <input type="hidden" name="_subject" value="New rental enquiry - east-westhomes.com">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://east-westhomes.com/thanks.html">
     <h3>Tell us what you&rsquo;re looking for</h3>
     <p class="sub">No application fee to enquire. We will call or email you back.</p>
 
     <div class="two">
-     <div class="field"><label for="tn">Your name</label><input id="tn" type="text"></div>
-     <div class="field"><label for="tp">Phone</label><input id="tp" type="tel"></div>
+     <div class="field"><label for="tn">Your name</label><input id="tn" name="Name" type="text" required></div>
+     <div class="field"><label for="tp">Phone</label><input id="tp" name="Phone" type="tel"></div>
     </div>
-    <div class="field"><label for="te">Email</label><input id="te" type="email"></div>
+    <div class="field"><label for="te">Email</label><input id="te" name="Email" type="email" required></div>
     <div class="two">
      <div class="field"><label for="tb">Bedrooms needed</label>
-      <select id="tb"><option>1 bedroom</option><option>2 bedrooms</option><option>3 bedrooms</option><option>4+ bedrooms</option><option>Not sure yet</option></select></div>
+      <select id="tb" name="Bedrooms needed"><option>1 bedroom</option><option>2 bedrooms</option><option>3 bedrooms</option><option>4+ bedrooms</option><option>Not sure yet</option></select></div>
      <div class="field"><label for="tv">Do you have a housing voucher?</label>
-      <select id="tv"><option>Yes</option><option>No</option><option>Applying for one</option><option>Prefer not to say</option></select></div>
+      <select id="tv" name="Housing voucher"><option>Yes</option><option>No</option><option>Applying for one</option><option>Prefer not to say</option></select></div>
     </div>
-    <div class="field"><label for="tm">Anything else we should know <span class="opt">&mdash; optional</span></label><textarea id="tm"></textarea></div>
+    <div class="field"><label for="tm">Anything else we should know <span class="opt">&mdash; optional</span></label><textarea id="tm" name="Message"></textarea></div>
 
-    <button class="btn" onclick="sendTenant();return false">Send</button>
-    <p style="font-size:14.5px;color:var(--muted);margin-top:14px">This opens your email app with your details ready to send. Or call us at <a href="tel:+14124265152" style="color:inherit">412.426.5152</a>.</p>
-   </div>
+    <button class="btn" type="submit">Send</button>
+    <p style="font-size:14.5px;color:var(--muted);margin-top:14px">We will call or email you back. Or reach us now at <a href="tel:+14124265152" style="color:inherit">412.426.5152</a>.</p>
+   </form>
   </div>
  </section>
 
@@ -522,13 +526,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     </div>
     <div>
      <h2 class="sec-head" style="font-size:1.5rem">Send a message</h2>
-     <div class="field"><label for="n1">Name</label><input id="n1" type="text"></div>
-     <div class="field"><label for="e1">Email</label><input id="e1" type="email"></div>
+     <form action="https://formsubmit.co/management@east-westhomes.com" method="POST">
+     <input type="hidden" name="_subject" value="Website enquiry - east-westhomes.com">
+     <input type="hidden" name="_captcha" value="false">
+     <input type="hidden" name="_template" value="table">
+     <input type="hidden" name="_next" value="https://east-westhomes.com/thanks.html">
+     <div class="field"><label for="n1">Name</label><input id="n1" name="Name" type="text" required></div>
+     <div class="field"><label for="e1">Email</label><input id="e1" name="Email" type="email" required></div>
      <div class="field"><label for="h1">How can we help?</label>
-      <select id="h1"><option>I'm interested in renting</option><option>I'm a current tenant</option><option>I'm a contractor</option><option>Community partnership</option><option>Something else</option></select></div>
-     <div class="field"><label for="m1">Message</label><textarea id="m1"></textarea></div>
-     <button class="btn" onclick="sendMessage();return false">Send message</button>
-     <p style="font-size:14.5px;color:var(--muted);margin-top:14px">This opens your email app with the message ready to send to the right inbox.</p>
+      <select id="h1" name="Topic"><option>I'm interested in renting</option><option>I'm a current tenant</option><option>I'm a contractor</option><option>Community partnership</option><option>Something else</option></select></div>
+     <div class="field"><label for="m1">Message</label><textarea id="m1" name="Message" required></textarea></div>
+     <button class="btn" type="submit">Send message</button>
+     </form>
+     <p style="font-size:14.5px;color:var(--muted);margin-top:14px">We read every message and will get back to you.</p>
     </div>
    </div>
 
@@ -563,22 +573,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </footer>
 
 <script>
-var INBOX = "management@east-westhomes.com";
-function v(id){var e=document.getElementById(id);return e?e.value:"";}
-function sendMessage(){
-  var name=v('n1'), email=v('e1'), topic=v('h1'), msg=v('m1');
-  if(!name||!email||!msg){alert("Please add your name, email and a message.");return;}
-  var tenant = (topic.indexOf("renting")>-1 || topic.indexOf("current tenant")>-1);
-  var to = tenant ? INBOX : "info@east-westhomes.com";
-  var body="Name: "+name+"\nEmail: "+email+"\nTopic: "+topic+"\n\n"+msg;
-  window.location.href="mailto:"+to+"?subject="+encodeURIComponent("Website enquiry \u2014 "+topic)+"&body="+encodeURIComponent(body);
-}
-function sendTenant(){
-  var name=v('tn'), phone=v('tp'), email=v('te'), beds=v('tb'), vou=v('tv'), msg=v('tm');
-  if(!name||(!phone&&!email)){alert("Please add your name and either a phone number or an email.");return;}
-  var body="Name: "+name+"\nPhone: "+phone+"\nEmail: "+email+"\nBedrooms needed: "+beds+"\nHousing voucher: "+vou+"\n\n"+msg;
-  window.location.href="mailto:"+INBOX+"?subject="+encodeURIComponent("Rental enquiry \u2014 "+name)+"&body="+encodeURIComponent(body);
-}
 function openCase(id){var d=document.getElementById('cs-'+id); if(d&&d.showModal) d.showModal();}
 function closeCase(id){var d=document.getElementById('cs-'+id); if(d&&d.close) d.close();}
 function go(id){
