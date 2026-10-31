@@ -1,0 +1,44 @@
+# Shows to read every day. Judge a show by its guests and content, not its audience size.
+# Don't drop a show after two quiet episodes: the gold is often one passing remark weeks later.
+#
+# podscan_id: fill from `python intel.py discover` output or Podscan's site.
+# Starter list of likely-relevant shows. VERIFY each exists and is active, then add podscan_id.
+
+shows:
+  # --- Senior care / home health / Medicaid ---
+  - name: Home Health Care News (HHCN) podcast
+    why: home-health operators, Medicaid HCBS policy
+    podscan_id:
+  - name: Senior Housing News podcast
+    why: senior living operators, assisted living economics
+    podscan_id:
+  - name: Assisted Living Investing / residential assisted living shows
+    why: RAL / small group-home operator economics
+    podscan_id:
+  - name: Medicaid / HCBS policy shows (e.g. ADvancing States, NASDDDS content)
+    why: waiver changes, housing supports
+    podscan_id:
+  # --- Supportive & affordable housing ---
+  - name: Novogradac affordable housing podcasts
+    why: LIHTC, supportive housing finance, tax credit deadlines
+    podscan_id:
+  - name: CSH (Corporation for Supportive Housing) content
+    why: supportive housing, health-housing partnerships, 1115 waivers
+    podscan_id:
+  - name: National Alliance to End Homelessness content
+    why: SSVF, VASH, landlord engagement
+    podscan_id:
+  # --- Veterans ---
+  - name: VA / veteran homelessness shows
+    why: HUD-VASH, GPD, Medical Foster Home news
+    podscan_id:
+  # --- Real estate operators ---
+  - name: Section 8 / voucher landlord shows
+    why: voucher operations, NSPIRE, payment standards
+    podscan_id:
+  - name: Residential assisted living / "care home" investor shows
+    why: master-lease-to-operator deal structures
+    podscan_id:
+  - name: Pittsburgh real estate shows
+    why: local market, zoning, politics
+    podscan_id:

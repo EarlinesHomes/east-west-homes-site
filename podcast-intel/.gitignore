@@ -1,0 +1,5 @@
+# This repo is PUBLIC (and served by GitHub Pages). Keep private material out.
+context/context.md
+briefs/
+.env
+__pycache__/

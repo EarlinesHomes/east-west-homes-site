@@ -1,0 +1,47 @@
+# What we care about. Go wider than feels right.
+# Used by `intel.py discover` to search transcripts for shows worth tracking.
+# The daily read does NOT keyword-filter. It reads every episode in full.
+
+focus:   # current priority: VA + home-health uses for vacancies
+  - HUD-VASH landlord
+  - SSVF landlord incentive
+  - VA Grant and Per Diem transitional housing
+  - VA medical foster home
+  - VA community residential care
+  - master lease group home provider
+  - intellectual disability group home lease
+  - ODP community home Pennsylvania
+  - Medicaid waiver housing
+  - home and community based services housing
+  - nursing home transition housing
+  - Money Follows the Person
+  - medical respite recuperative care
+  - hospital discharge housing
+  - 1115 waiver housing supports
+  - supportive housing developer
+  - reentry housing landlord
+  - recovery housing
+  - travel nurse furnished rental
+  - Section 811 Mainstream voucher
+
+core:
+  - affordable housing operations
+  - Section 8 Housing Choice Voucher landlord
+  - single family rental operations
+  - small multifamily management
+  - property management third-party owners
+  - construction costs rehab
+  - fundraising syndication
+  - opportunity zones
+  - LIHTC
+  - CDFI lending
+  - impact investing housing
+
+markets:
+  - Pittsburgh real estate
+  - Allegheny County housing
+  - Birmingham Alabama real estate
+  - Sumter South Carolina
+  - Pennsylvania Medicaid
+  - Alabama Medicaid
+  - South Carolina Medicaid

@@ -1,0 +1,25 @@
+# Podcast Intel configuration.
+# Secrets come from environment variables, never this file (the repo is public):
+#   ANTHROPIC_API_KEY, PODSCAN_API_KEY
+
+context_file: context/context.md        # private, git-ignored; falls back to context.example.md
+shows_file: config/shows.yaml
+output_dir: briefs                      # git-ignored
+state_file: briefs/.state.json          # remembers which episodes were already read
+
+lookback_hours: 36                      # on a daily run, read episodes posted in this window
+
+models:
+  first_read: claude-sonnet-5-5         # reads every episode in full, flags passages
+  first_read_effort: medium
+  deep_read: claude-opus-5-5            # re-reads the full transcript, verifies, writes the brief
+  deep_read_effort: high
+
+podscan:
+  # VERIFY these against https://podscan.fm/docs before the first run; they're isolated
+  # in podscan.py so a change only touches one file.
+  base_url: https://podscan.fm/api/v1
+  episodes_for_podcast: /podcasts/{podcast_id}/episodes
+  episode: /episodes/{episode_id}
+  search_episodes: /episodes/search
+  search_podcasts: /podcasts/search
