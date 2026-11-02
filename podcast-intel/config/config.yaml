@@ -1,6 +1,6 @@
 # Podcast Intel configuration.
 # Secrets come from environment variables, never this file (the repo is public):
-#   ANTHROPIC_API_KEY, PODSCAN_API_KEY
+#   PODCAST_ANTHROPIC_KEY (falls back to ANTHROPIC_API_KEY if unset), PODSCAN_API_KEY
 
 context_file: context/context.md        # private, git-ignored; falls back to context.example.md
 shows_file: config/shows.yaml

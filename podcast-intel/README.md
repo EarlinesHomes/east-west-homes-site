@@ -23,7 +23,7 @@ Built-in lessons from the post: pull the actual passages with timestamps, names 
 cd podcast-intel
 pip install -r requirements.txt
 cp context/context.example.md context/context.md   # then fill in the private sections
-export ANTHROPIC_API_KEY=...    # console.anthropic.com
+export PODCAST_ANTHROPIC_KEY=... # console.anthropic.com (falls back to ANTHROPIC_API_KEY if unset)
 export PODSCAN_API_KEY=...      # podscan.fm (has a free trial)
 ```
 

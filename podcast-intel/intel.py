@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sys
 from collections import Counter
 from datetime import datetime, timedelta, timezone
@@ -90,6 +91,14 @@ def load_cfg() -> dict:
     return yaml.safe_load((ROOT / "config/config.yaml").read_text())
 
 
+def anthropic_key() -> str:
+    """PODCAST_ANTHROPIC_KEY first, then ANTHROPIC_API_KEY (some sessions don't pass the latter through)."""
+    key = os.environ.get("PODCAST_ANTHROPIC_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        raise SystemExit("Set PODCAST_ANTHROPIC_KEY (or ANTHROPIC_API_KEY) to call Claude.")
+    return key
+
+
 def load_context(cfg: dict) -> str:
     p = ROOT / cfg["context_file"]
     if not p.exists():
@@ -103,7 +112,7 @@ def load_context(cfg: dict) -> str:
 class Reader:
     def __init__(self, cfg: dict):
         self.cfg = cfg
-        self.client = anthropic.Anthropic()
+        self.client = anthropic.Anthropic(api_key=anthropic_key())
         context = load_context(cfg)
         # The context document is identical on every call, so cache it.
         self.context_block = {
